@@ -5,6 +5,7 @@ import {
   CardFooter,
   Heading,
   IconButton,
+  Button,
   Image,
   Stack,
   Text,
@@ -12,6 +13,7 @@ import {
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Link, useParams } from "react-router-dom";
 import { MOVIEDB_IMAGES_URL } from "src/common/constants";
+import { data } from "./data";
 
 function MoviesDetails() {
   const { movieId } = useParams();
