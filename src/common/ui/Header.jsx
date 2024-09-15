@@ -13,7 +13,6 @@ export default function Header() {
         px="6"
       >
         <JokesSettings />
-        Settings
       </Flex>
     </Box>
   );
