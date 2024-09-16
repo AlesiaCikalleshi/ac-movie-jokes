@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Card,
   CardBody,
@@ -13,7 +14,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Link, useParams } from "react-router-dom";
 import { MOVIEDB_IMAGES_URL } from "src/common/constants";
 import { useSelector } from "react-redux";
-import { selectMovieById } from "./moviesSlice";
+import { selectMovieById } from "./moviesApi";
 import JokesGenerator from "../ai-jokes/JokesGenerator";
 
 function MoviesDetails() {
@@ -47,7 +48,9 @@ function MoviesDetails() {
         <Stack>
           <CardBody>
             <Heading size="md">{movie.title}</Heading>
-
+            <Text py="2" color="gray.600">
+              Rating: <Badge colorScheme="yellow">{movie?.vote_average}</Badge>
+            </Text>
             <Text py="2">{movie.overview}</Text>
           </CardBody>
 

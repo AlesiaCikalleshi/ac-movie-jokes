@@ -1,4 +1,4 @@
-import { Button, useToast } from "@chakra-ui/react";
+import { Button, Flex, useToast, Text, Badge } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectJokeByMovieId, selectJokeStatus } from "./aiJokesSlice";
 
@@ -24,16 +24,26 @@ function JokesGenerator({ movieId, movieTitle, movieDescription }) {
   };
 
   return (
-    <Button
-      isLoading={jokeStatus === "loading"}
-      variant="solid"
-      bg="green.300"
-      color="white"
-      w="100%"
-      onClick={handleGenerateJoke}
-    >
-      {joke ? "Regenerate" : "Generate"} Joke
-    </Button>
+    <Flex display="column" gap={4} w="100%">
+      {joke && (
+        <Text mb={2} fontWeight="bold" fontSize="md">
+          <Badge fontSize="0.9em" colorScheme="green" mr={1}>
+            JOKE:
+          </Badge>
+          <Text as="span">{joke}</Text>
+        </Text>
+      )}
+      <Button
+        isLoading={jokeStatus === "loading"}
+        variant="solid"
+        bg="green.300"
+        color="white"
+        w="100%"
+        onClick={handleGenerateJoke}
+      >
+        {joke ? "Regenerate" : "Generate"} Joke
+      </Button>
+    </Flex>
   );
 }
 
